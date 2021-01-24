@@ -5,7 +5,7 @@
     tools:context="com.example.android.navigation.WelcomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/loginConstraint"
+        android:id="@+id/welcomeConstraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
