@@ -5,12 +5,12 @@
     tools:context="com.example.android.navigation.WelcomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/welcomeConstraint"
+        android:id="@+id/welcomeLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/welcome"
+            android:id="@+id/welcomeTitle"
             style="@style/TitleStyle"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
@@ -36,7 +36,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/welcome" />
+            app:layout_constraintTop_toBottomOf="@id/welcomeTitle" />
 
         <Button
             android:id="@+id/instructions_button"
