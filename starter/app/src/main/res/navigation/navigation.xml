@@ -29,12 +29,13 @@
         tools:layout="@layout/fragment_instruction" >
         <action
             android:id="@+id/action_instructionFragment_to_shoeList"
-            app:destination="@id/shoeList" />
+            app:destination="@id/shoeListFragment" />
     </fragment>
     <fragment
-        android:id="@+id/shoeList"
+        android:id="@+id/shoeListFragment"
         android:name="com.udacity.shoestore.ShoeListFragment"
-        android:label="ShoeList" >
+        android:label="ShoeListFragment"
+        tools:layout="@layout/fragment_shoe_list">
         <action
             android:id="@+id/action_shoeList_to_shoeDetailFragment"
             app:destination="@id/shoeDetailFragment" />
@@ -42,9 +43,10 @@
     <fragment
         android:id="@+id/shoeDetailFragment"
         android:name="com.udacity.shoestore.ShoeDetailFragment"
-        android:label="ShoeDetailFragment" >
+        android:label="ShoeDetailFragment"
+        tools:layout="@layout/fragment_shoe_detail">
         <action
             android:id="@+id/action_shoeDetailFragment_to_shoeList"
-            app:destination="@id/shoeList" />
+            app:destination="@id/shoeListFragment" />
     </fragment>
 </navigation>
