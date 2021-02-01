@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
+import com.udacity.shoestore.databinding.ShoeItemBinding
 
 class ShoeListFragment : Fragment() {
 
@@ -29,6 +30,15 @@ class ShoeListFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(ShoeViewModel::class.java)
 
+        val shoeListLayout = binding.root.findViewById<LinearLayout>(R.id.shoeListLayout)
+
+        viewModel.shoeList.observe(viewLifecycleOwner, Observer { shoeList ->
+            shoeList.forEach { shoe ->
+                val shoeItemBinding = DataBindingUtil.inflate<ShoeItemBinding>(inflater, R.layout.shoe_item, container, false)
+                shoeItemBinding.shoe = shoe
+                shoeListLayout.addView(shoeItemBinding.root)
+            }
+        })
 
         binding.floatingActionButton.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_shoeList_to_shoeDetailFragment)

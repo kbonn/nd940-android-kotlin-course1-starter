@@ -1,6 +1,5 @@
 package com.udacity.shoestore
 
-import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,14 +11,26 @@ class ShoeViewModel: ViewModel() {
     val shoeList: LiveData<MutableList<Shoe>>
         get() = _shoeList
 
-    private val _newShoe = MutableLiveData<Boolean>()
-    val newShoe: LiveData<Boolean>
-        get() = _newShoe
+    private val _addingShoe = MutableLiveData<Boolean>()
+    val addingShoe: LiveData<Boolean>
+        get() = _addingShoe
 
-    fun addShoes(name: String, size: String, company: String, description: String) {
-        val newShoe = Shoe(
-            name, size.toDouble(), company, description
-        )
-        _shoeList.value?.add(newShoe)
+    init {
+        val testShoe = Shoe("Name", 12.0, "Company", "Description")
+        _shoeList.value = mutableListOf()
+        _shoeList.value!!.add(testShoe)
+    }
+
+    fun emptyShoe(): Shoe {
+        return Shoe("", 0.0, "", "")
+    }
+
+    fun addShoe(shoe: Shoe) {
+        _shoeList.value!!.add(shoe)
+        _addingShoe.value = true
+    }
+
+    fun shoeAdded(){
+        _addingShoe.value = false
     }
 }
