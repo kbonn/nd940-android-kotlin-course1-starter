@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -16,7 +17,7 @@ import timber.log.Timber
 
 class ShoeDetailFragment : Fragment() {
 
-    private lateinit var viewModel: ShoeViewModel
+    private val viewModel: ShoeViewModel by activityViewModels()
     private lateinit var binding: FragmentShoeDetailBinding
 
     override fun onCreateView(
@@ -28,8 +29,8 @@ class ShoeDetailFragment : Fragment() {
             inflater, R.layout.fragment_shoe_detail, container, false
         )
 
+        binding.shoeViewModel = viewModel
         binding.lifecycleOwner = this
-        viewModel = ViewModelProvider(this).get(ShoeViewModel::class.java)
         binding.shoe = viewModel.emptyShoe()
 
         binding.cancel.setOnClickListener { view: View ->
