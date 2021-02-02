@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.android.navigation.InstructionFragment">
 
+    <!--ConstraintLayout is used for simplicity to organize all views-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/instructionConstraint"
         android:layout_width="match_parent"
